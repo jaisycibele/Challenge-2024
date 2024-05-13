@@ -11,14 +11,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 
 @Entity
 @Table(name = "tb_anuncio")
-@Getter @Setter
-@ToString
 public class Anuncio {
     
     @Id
@@ -47,7 +51,7 @@ public class Anuncio {
     private Long qtdCliques;
     
     @Column(name="custo_anuncio")
-    private Long custoAnuncio;
+    private Double custoAnuncio;
     
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(

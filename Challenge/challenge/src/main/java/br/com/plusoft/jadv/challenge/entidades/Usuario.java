@@ -6,14 +6,18 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 
 @Entity
 @Table(name = "tb_usuario")
-@Getter @Setter
-@ToString
 public class Usuario {
     
     @Id
@@ -32,14 +36,6 @@ public class Usuario {
     @Column(name = "ds_chave_googleads")
     private String chaveGoogleAds;
     
-    public Usuario(String nome, String email, String senha, String chaveGoogleAds) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.chaveGoogleAds = chaveGoogleAds;
-       
-    }
-
-    public Usuario() {}
+   
 }
 
